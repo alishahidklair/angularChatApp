@@ -2,6 +2,11 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+
+@app.route('/api', methods=['GET'])
+def test():
+    return "API"
+
 # Example endpoint to receive data from Angular
 @app.route('/api/data', methods=['POST'])
 def receive_data():
@@ -17,16 +22,14 @@ def receive_data():
 @app.route('/api/data', methods=['GET'])
 def send_data():
     # Prepare data to send to Angular
-    data = {'name': 'John', 'age': 30}
+    data = {'name': 'Johnytf', 'age': 30}
     # ...
 
     # Return the data as JSON response
     return jsonify(data)
 
 
-@app.route('/api', methods=['GET'])
-def test():
-    return "API"
+
 
 
 @app.route('/', methods=['GET'])
