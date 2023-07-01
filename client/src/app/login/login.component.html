@@ -1,0 +1,55 @@
+<div class="toggle-bar">
+    <button [class.active]="isLoginMode" (click)="toggleMode(true)">Login</button>
+    <button [class.active]="!isLoginMode" (click)="toggleMode(false)">Sign Up</button>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()" *ngIf="isLoginMode; else signupForm" #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput type="email" id="username" name="username" [(ngModel)]="username" required email>
+      <mat-label>Username (Email)</mat-label>
+      <mat-error *ngIf="loginForm.controls['username'].errors?.['required']">Email is required</mat-error>
+      <mat-error *ngIf="loginForm.controls['username'].errors?.['email']">Invalid email format</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput type="password" id="password" name="password" [(ngModel)]="password" required>
+      <mat-label>Password</mat-label>
+      <mat-error *ngIf="loginForm.controls['password'].errors?.['required']">Password is required</mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      Log In
+    </button>
+  </form>
+  
+  <ng-template #signupForm>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <mat-form-field>
+        <input matInput type="email" id="username" name="username" [(ngModel)]="username" required email>
+        <mat-label>Username (Email)</mat-label>
+        <mat-error *ngIf="form.controls['username'].errors?.['required']">Email is required</mat-error>
+        <mat-error *ngIf="form.controls['username'].errors?.['email']">Invalid email format</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="password" id="password" name="password" [(ngModel)]="password" required>
+        <mat-label>Password</mat-label>
+        <mat-error *ngIf="form.controls['password'].errors?.['required']">Password is required</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+        <mat-label>Confirm Password</mat-label>
+        <mat-error *ngIf="form.controls['confirmPassword'].errors?.['required']">Confirmation password is required</mat-error>
+      </mat-form-field>
+  
+      <div *ngIf="form.controls['password'].value !== form.controls['confirmPassword'].value && form.controls['confirmPassword'].touched">
+        Passwords do not match.
+      </div>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || form.controls['password'].value !== form.controls['confirmPassword'].value">
+        Sign Up
+      </button>
+    </form>
+  </ng-template>
+  
