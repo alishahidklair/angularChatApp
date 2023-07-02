@@ -1,0 +1,8 @@
+<div class="chat-input-bar">
+    <mat-form-field class="input-field">
+        <input matInput placeholder="Type your message" [(ngModel)]="messageText" (input)="checkInput()" #inputField>
+    </mat-form-field>
+    <button mat-icon-button color="primary" [disabled]="!isInputValid" (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+    </button>
+</div>

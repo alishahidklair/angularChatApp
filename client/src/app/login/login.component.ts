@@ -14,10 +14,10 @@ export class LoginComponent {
   onSubmit() {
     if (this.isLoginMode) {
       // Handle login form submission
-      console.log('Login form submitted');
+      console.log('Login form submitted', this.username, this.password);
     } else {
       // Handle signup form submission
-      console.log('Signup form submitted');
+      console.log('Signup form submitted', this.username, this.password, this.confirmPassword);
     }
   }
 

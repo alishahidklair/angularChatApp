@@ -1,0 +1,30 @@
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* Align the content to the right */
+  background-color: lightblue;
+  padding: 8px;
+  position: fixed;
+  top: 85%;
+  bottom: 0;
+  width: 75%;
+  /* Set the width to 100% */
+  right: 0;
+  /* Position it on the right side */
+  border-radius: 10px; /* Add border-radius for curved edges */
+
+}
+
+.input-field {
+  flex: 1;
+  margin-right: 8px;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+button[disabled] .mat-icon {
+  color: gray;
+}

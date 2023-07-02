@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
+
+import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatInputComponent } from './chat/chat-input/chat-input.component';
+import { ChatHistoryComponent } from './chat/chat-history/chat-history.component';
+import { ChatSearchHistoryComponent } from './chat/chat-search-history/chat-search-history.component';
+import { ChatRoomListComponent } from './chat/chat-room-list/chat-room-list.component';
+import { ChatSearchRoomListComponent } from './chat/chat-search-room-list/chat-search-room-list.component';
 
 
 
@@ -17,6 +27,12 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     LoginComponent,
+    ChatComponent,
+    ChatInputComponent,
+    ChatHistoryComponent,
+    ChatSearchHistoryComponent,
+    ChatRoomListComponent,
+    ChatSearchRoomListComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +40,8 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
